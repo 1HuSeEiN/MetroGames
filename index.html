@@ -16,6 +16,11 @@
   <!-- ======= PARTICLES BG ======= -->
   <canvas id="particleCanvas"></canvas>
 
+  <!-- ======= DYNAMIC NEWS BANNER ======= -->
+  <div id="dynamic-news-banner" style="display: none; background: linear-gradient(90deg, #1565c0, #00bcd4); color: #fff; text-align: center; padding: 12px; font-weight: 700; z-index: 1000; position: relative; font-family: 'Cairo', sans-serif; box-shadow: 0 2px 10px rgba(0,0,0,0.5);">
+    <span id="dynamic-news-text"></span>
+  </div>
+
   <!-- ======= NAVBAR ======= -->
   <nav class="navbar" id="navbar">
     <div class="nav-container">
@@ -360,5 +365,18 @@
   <a href="#home" class="back-to-top" id="backToTop" aria-label="Back to top">↑</a>
 
   <script src="script.js"></script>
+  
+  <!-- DYNAMIC DATA FETCH SCRIPT -->
+  <script>
+    fetch('data.json?v=' + new Date().getTime())
+      .then(response => response.json())
+      .then(data => {
+        if (data && data.main_text && data.main_text.trim() !== '') {
+          document.getElementById('dynamic-news-text').textContent = data.main_text;
+          document.getElementById('dynamic-news-banner').style.display = 'block';
+        }
+      })
+      .catch(err => console.log('No dynamic data found', err));
+  </script>
 </body>
 </html>
