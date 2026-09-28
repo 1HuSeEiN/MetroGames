@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Metro Games – أفضل سايبر كافيه في بغداد. أحدث الألعاب، أجواء احترافية، سناكات ومشروبات. الحرية – شارع المشجر." />
+  <title>Metro Games | من بغداد للعالم 🌍</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;900&family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="logo.png" type="image/png" />
+</head>
+<body>
+
+  <!-- ======= PARTICLES BG ======= -->
+  <canvas id="particleCanvas"></canvas>
+
+  <!-- ======= NAVBAR ======= -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home" class="nav-link active">الرئيسية</a></li>
+        <li><a href="#about" class="nav-link">من نحن</a></li>
+        <li><a href="#services" class="nav-link">خدماتنا</a></li>
+        <li><a href="#games" class="nav-link">الألعاب</a></li>
+        <li><a href="#gallery" class="nav-link">الصور</a></li>
+        <li><a href="menu.html" class="nav-link" id="nav-menu-link" style="color:var(--blue-light);">المنيو</a></li>
+        <li><a href="#contact" class="nav-link">تواصل</a></li>
+      </ul>
+      <button class="burger" id="burger" aria-label="Toggle Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ======= HERO ======= -->
+  <section class="hero" id="home">
+    <div class="hero-bg-overlay"></div>
+    <div class="hero-grid-lines"></div>
+    <div class="hero-container">
+      <!-- Right Column: Content -->
+      <div class="hero-content-right">
+        <div class="hero-brand-card">
+          <h1 class="hero-main-title">
+            <span class="title-top">من بغداد</span>
+            <span class="title-bottom">للعالم</span>
+          </h1>
+          <div class="hero-cyber-tagline">
+            <span class="tagline-text">مو بس لعب…</span>
+            <span class="tagline-badge">أسلوب حياة</span>
+          </div>
+        </div>
+        <div class="hero-tags">
+          <span class="tag">أحدث الألعاب</span>
+          <span class="tag">أجواء احترافية</span>
+          <span class="tag">سناكات</span>
+          <span class="tag">مشروبات</span>
+        </div>
+        <div class="hero-btns">
+          <a href="#services" class="btn btn-primary" id="hero-cta">ابدأ رحلتك</a>
+          <a href="#contact" class="btn btn-outline">موقعنا</a>
+        </div>
+      </div>
+
+      <!-- Left Column: Logo -->
+      <div class="hero-logo-left">
+        <img src="logo.png" alt="E-Metro Games" class="hero-logo-large" />
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= ABOUT ======= -->
+  <section class="section about" id="about">
+    <div class="section-container">
+      <div class="section-header">
+        <span class="section-label">من نحن</span>
+        <h2 class="section-title">مرحباً في <span class="highlight-blue">Metro Games</span></h2>
+        <p class="section-desc">الوجهة الأولى للألعاب الاحترافية في بغداد — حيث تلتقي التكنولوجيا بالشغف</p>
+      </div>
+      <div class="about-grid">
+        <div class="about-card">
+          <div class="about-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          </div>
+          <h3>أجهزة فائقة السرعة</h3>
+          <p>أحدث أجهزة الكمبيوتر بمواصفات عالية، معالجات i9 وكروت RTX لتجربة لعب لا تُضاهى</p>
+        </div>
+        <div class="about-card featured">
+          <div class="about-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.45 1-1 1H4v2h16v-2h-5c-.55 0-1-.45-1-1v-2.34"/><path d="M12 2a7.7 7.7 0 0 1 7.54 8H4.46A7.7 7.7 0 0 1 12 2z"/></svg>
+          </div>
+          <h3>أجواء البطولات</h3>
+          <p>مكان مجهز للتورنامنت والبطولات المحلية والإقليمية. اثبت نفسك أمام الجميع</p>
+        </div>
+        <div class="about-card">
+          <div class="about-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg>
+          </div>
+          <h3>صوت محيطي</h3>
+          <p>سماعات احترافية وأنظمة صوت تضعك داخل اللعبة تماماً — الفارق يُسمع</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= SERVICES ======= -->
+  <section class="section services" id="services">
+    <div class="section-container">
+      <div class="section-header">
+        <span class="section-label">خدماتنا</span>
+        <h2 class="section-title">كل شي تحتاجه <span class="highlight-blue">بمكان واحد</span></h2>
+      </div>
+      <div class="services-grid">
+        <div class="service-card" id="srv-gaming">
+          <div class="service-icon-wrap">
+            <span class="service-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="6" y1="12" x2="10" y2="12"/><line x1="8" y1="10" x2="8" y2="14"/><line x1="15" y1="13" x2="15.01" y2="13"/><line x1="18" y1="11" x2="18.01" y2="11"/><rect x="2" y="6" width="20" height="12" rx="3" ry="3"/></svg>
+            </span>
+          </div>
+          <h3>ألعاب PC</h3>
+          <p>أكثر من 100 لعبة على أجهزة عالية المواصفات مع إنترنت فائق السرعة</p>
+          <div class="service-feature-list">
+            <span>• FPS & Battle Royale</span>
+            <span>• MOBA & RTS</span>
+            <span>• RPG & Adventure</span>
+          </div>
+        </div>
+        <div class="service-card" id="srv-ps">
+          <div class="service-icon-wrap">
+            <span class="service-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2z"/><path d="M6 12h4M8 10v4M15 11h.01M18 13h.01"/></svg>
+            </span>
+          </div>
+          <h3>PlayStation Zone</h3>
+          <p>منطقة خاصة لأجهزة PS5 مع أحدث العناوين الحصرية</p>
+          <div class="service-feature-list">
+            <span>• PS5 الجديد</span>
+            <span>• شاشات 4K</span>
+            <span>• Co-op Mode</span>
+          </div>
+        </div>
+        <div class="service-card" id="srv-food">
+          <div class="service-icon-wrap">
+            <span class="service-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20h20"/><path d="M20 16H4c-1.1 0-2-.9-2-2v-1c0-4.97 4.03-9 9-9s9 4.03 9 9v1c0 1.1-.9 2-2 2z"/><path d="M3 13h18"/></svg>
+            </span>
+          </div>
+          <h3>مطبخ وسناكات</h3>
+          <p>سناكات شهية ومشروبات باردة وساخنة لتبقى متركزاً في لعبتك</p>
+          <div class="service-feature-list">
+            <span>• برغر & بيتزا</span>
+            <span>• عصائر طازجة</span>
+            <span>• قهوة وطاقة</span>
+          </div>
+        </div>
+        <div class="service-card" id="srv-vip">
+          <div class="service-icon-wrap">
+            <span class="service-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 4l3 12h14l3-12-6 7-4-7-4 7-6-7z"/></svg>
+            </span>
+          </div>
+          <h3>غرف VIP</h3>
+          <p>تجربة خاصة مع أصدقائك في غرف مغلقة بأجواء مميزة وخصوصية تامة</p>
+          <div class="service-feature-list">
+            <span>• غرف خاصة</span>
+            <span>• شاشات ضخمة</span>
+            <span>• خدمة مخصصة</span>
+          </div>
+        </div>
+        <div class="service-card" id="srv-tournament">
+          <div class="service-icon-wrap">
+            <span class="service-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.45 1-1 1H4v2h16v-2h-5c-.55 0-1-.45-1-1v-2.34"/><path d="M12 2a7.7 7.7 0 0 1 7.54 8H4.46A7.7 7.7 0 0 1 12 2z"/></svg>
+            </span>
+          </div>
+          <h3>البطولات</h3>
+          <p>بطولات أسبوعية وشهرية بجوائز حقيقية — ثبّت اسمك على لوحة الأبطال</p>
+          <div class="service-feature-list">
+            <span>• جوائز نقدية</span>
+            <span>• تسجيل مجاني</span>
+            <span>• بث مباشر</span>
+          </div>
+        </div>
+        <div class="service-card" id="srv-wifi">
+          <div class="service-icon-wrap">
+            <span class="service-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><circle cx="12" cy="20" r="1"/></svg>
+            </span>
+          </div>
+          <h3>إنترنت فائق</h3>
+          <p>فايبر أوبتيك لضمان صفر لاق وتجربة لعب مستقرة</p>
+          <div class="service-feature-list">
+            <span>• إنترنت فايبر</span>
+            <span>• Ping منخفض</span>
+            <span>• بدون انقطاع</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= GAMES TICKER ======= -->
+  <section class="games-ticker" id="games">
+    <div class="ticker-label">الألعاب المتاحة</div>
+    <div class="ticker-track">
+      <div class="ticker-inner">
+        <img src="games/valorant.svg" alt="Valorant" />
+        <img src="games/cs2.svg" alt="CS2" />
+        <img src="games/lol.svg" alt="League of Legends" />
+        <img src="games/fortnite.svg" alt="Fortnite" />
+        <img src="games/apex.svg" alt="Apex Legends" />
+        <img src="games/dota2.svg" alt="Dota 2" />
+        <img src="games/overwatch2.svg" alt="Overwatch 2" />
+        <img src="games/gtav.svg" alt="GTA V" />
+        <img src="games/fc.svg" alt="EA Sports FC" />
+        <img src="games/playstation.svg" alt="PlayStation" />
+        
+        <!-- Duplicate for seamless loop -->
+        <img src="games/valorant.svg" alt="Valorant" />
+        <img src="games/cs2.svg" alt="CS2" />
+        <img src="games/lol.svg" alt="League of Legends" />
+        <img src="games/fortnite.svg" alt="Fortnite" />
+        <img src="games/apex.svg" alt="Apex Legends" />
+        <img src="games/dota2.svg" alt="Dota 2" />
+        <img src="games/overwatch2.svg" alt="Overwatch 2" />
+        <img src="games/gtav.svg" alt="GTA V" />
+        <img src="games/fc.svg" alt="EA Sports FC" />
+        <img src="games/playstation.svg" alt="PlayStation" />
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= GALLERY ======= -->
+  <section class="section gallery" id="gallery">
+    <div class="section-container">
+      <div class="section-header">
+        <span class="section-label">معرضنا</span>
+        <h2 class="section-title">شوف <span class="highlight-blue">الأجواء</span></h2>
+        <p class="section-desc">تجربة لا تنسى في كل زيارة</p>
+      </div>
+      <div class="gallery-grid">
+        <div class="gallery-item large" id="gal-1">
+          <div class="gallery-overlay">
+            <span>منطقة الـ PC</span>
+          </div>
+        </div>
+        <div class="gallery-item" id="gal-2">
+          <div class="gallery-overlay">
+            <span>PlayStation Zone</span>
+          </div>
+        </div>
+        <div class="gallery-item" id="gal-3">
+          <div class="gallery-overlay">
+            <span>غرفة VIP</span>
+          </div>
+        </div>
+        <div class="gallery-item" id="gal-4">
+          <div class="gallery-overlay">
+            <span>المطبخ</span>
+          </div>
+        </div>
+        <div class="gallery-item wide" id="gal-5">
+          <div class="gallery-overlay">
+            <span>منطقة البطولات</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= CONTACT ======= -->
+  <section class="section contact" id="contact">
+    <div class="section-container">
+      <div class="section-header">
+        <span class="section-label">تواصل معنا</span>
+        <h2 class="section-title">نحن هنا <span class="highlight-blue">دائماً</span></h2>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-info">
+          <div class="contact-item" id="contact-location">
+            <div class="contact-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a8 8 0 0 0-8 8c0 5.25 8 12 8 12s8-6.75 8-12a8 8 0 0 0-8-8z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div>
+              <h4>الموقع</h4>
+              <p>بغداد – الحرية<br />شارع المشجر</p>
+            </div>
+          </div>
+          <div class="contact-item" id="contact-hours">
+            <div class="contact-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <div>
+              <h4>أوقات العمل</h4>
+              <p>9:00 AM إلى 3:00 AM</p>
+            </div>
+          </div>
+          <div class="contact-item" id="contact-phone">
+            <div class="contact-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </div>
+            <div>
+              <h4>للحجز والاستفسار</h4>
+              <p>
+                <a href="tel:+9647754823028" style="color:inherit; text-decoration:none; direction: ltr; display: inline-block;">+964 775 482 3028</a>
+                <br />
+                <a href="tel:07746610664" style="color:inherit; text-decoration:none; direction: ltr; display: inline-block;">0774 661 0664</a>
+              </p>
+            </div>
+          </div>
+          <div class="contact-item" id="contact-social">
+            <div class="contact-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+            </div>
+            <div>
+              <h4>تابعنا</h4>
+              <div class="social-links">
+                <a href="https://www.instagram.com/metro_games1/" target="_blank" class="social-link" id="social-instagram">Instagram</a>
+                <a href="https://www.facebook.com/profile.php?id=61567990913098&ref=PROFILE_EDIT_xav_ig_profile_page_web#" target="_blank" class="social-link" id="social-facebook">Facebook</a>
+                <a href="https://www.tiktok.com/@metro.games76" target="_blank" class="social-link" id="social-tiktok">TikTok</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="contact-map" id="map-placeholder">
+          <div class="map-inner">
+            <div class="map-pin">
+              <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a8 8 0 0 0-8 8c0 5.25 8 12 8 12s8-6.75 8-12a8 8 0 0 0-8-8z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <p>الحرية – شارع المشجر</p>
+            <p>بغداد، العراق</p>
+            <a href="https://maps.app.goo.gl/KqS7Nry6FbzH56JeA" target="_blank" class="btn btn-primary map-btn" id="map-btn">افتح في خرائط Google</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= FOOTER ======= -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-logo">
+        <img src="logo.png" alt="E-Metro Games" />
+        <p>من بغداد للعالم</p>
+      </div>
+      <div class="footer-links">
+        <a href="#home">الرئيسية</a>
+        <a href="#services">خدماتنا</a>
+        <a href="#games">الألعاب</a>
+        <a href="#contact">تواصل</a>
+      </div>
+      <div class="footer-copy">
+        <p>© 2025 E-Metro Games – جميع الحقوق محفوظة</p>
+        <p class="footer-tagline">مو بس لعب… أسلوب حياة</p>
+      </div>
+    </div>
+  </footer>
+
+  <a href="#home" class="back-to-top" id="backToTop" aria-label="Back to top">↑</a>
+
+  <script src="script.js"></script>
+</body>
+</html>

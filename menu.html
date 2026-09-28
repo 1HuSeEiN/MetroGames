@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="منيو Metro Games – أحدث السناكات والمشروبات والوجبات. الحرية – شارع المشجر، بغداد." />
+  <title>منيو Metro Games | قائمة الطعام والمشروبات 🍔🥤</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;900&family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet" />
+  <link rel="icon" href="logo.png" type="image/png" />
+  <style>
+    /* ============ RESET & ROOT ============ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg-primary:   #080c12;
+      --bg-secondary: #0d1117;
+      --bg-card:      #0f1823;
+      --blue-main:    #1565c0;
+      --blue-mid:     #1e88e5;
+      --blue-light:   #42a5f5;
+      --cyan:         #00bcd4;
+      --white:        #ffffff;
+      --gray-1:       #e2e8f0;
+      --gray-2:       #94a3b8;
+      --gray-3:       #475569;
+      --border:       rgba(30, 136, 229, 0.2);
+      --glow-sm:      0 0 12px rgba(66, 165, 245, 0.3);
+      --glow-md:      0 0 30px rgba(66, 165, 245, 0.35);
+      --radius:       14px;
+      --radius-lg:    22px;
+      --transition:   0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      --font-ar:      'Cairo', sans-serif;
+      --font-en:      'Outfit', sans-serif;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-ar);
+      background: var(--bg-primary);
+      color: var(--white);
+      overflow-x: hidden;
+      direction: rtl;
+      line-height: 1.6;
+    }
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--bg-primary); }
+    ::-webkit-scrollbar-thumb { background: var(--blue-main); border-radius: 99px; }
+    ::selection { background: var(--blue-main); color: #fff; }
+
+    /* ============ PARTICLES ============ */
+    #pc { position: fixed; inset: 0; z-index: 0; pointer-events: none; opacity: 0.3; }
+
+    /* ============ NAVBAR ============ */
+    .navbar {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(8,12,18,0.95);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      padding: 12px 24px;
+    }
+    .nav-inner {
+      max-width: 1280px; margin: 0 auto;
+      display: flex;
+      align-items: center; justify-content: space-between; gap: 16px;
+    }
+    .nav-logo img { height: 58px; filter: drop-shadow(var(--glow-sm)); }
+    .nav-title { font-size: 1rem; font-weight: 700; color: var(--blue-light); }
+    .nav-back {
+      display: flex; align-items: center; gap: 8px;
+      text-decoration: none; color: var(--gray-2);
+      font-size: 0.9rem; font-weight: 600;
+      padding: 8px 16px; border-radius: 8px;
+      border: 1px solid var(--border);
+      transition: var(--transition);
+    }
+    .nav-back:hover { color: var(--white); border-color: var(--blue-mid); }
+
+    /* ============ HERO ============ */
+    .hero {
+      position: relative; z-index: 1;
+      padding: 60px 24px 40px;
+      text-align: center;
+      background: radial-gradient(ellipse 80% 60% at 50% 50%, rgba(21,101,192,0.12) 0%, transparent 70%);
+    }
+    .hero-logo { width: 180px; max-width: 60%; margin: 0 auto 20px; display: block; filter: drop-shadow(0 0 20px rgba(66,165,245,0.5)); }
+    .hero-title { font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 900; margin-bottom: 8px; }
+    .hero-sub { color: var(--gray-2); font-size: 1rem; margin-bottom: 24px; }
+    .hero-badges { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
+    .badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(21,101,192,0.15);
+      border: 1px solid rgba(66,165,245,0.3);
+      border-radius: 50px; padding: 6px 14px;
+      font-size: 0.82rem; color: var(--gray-1);
+    }
+    .highlight-blue {
+      background: linear-gradient(90deg, var(--blue-light), var(--cyan));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+
+    /* ============ CATEGORY TABS ============ */
+    .cats-wrap {
+      position: sticky; top: 63px; z-index: 90;
+      background: rgba(8,12,18,0.92); backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      padding: 0;
+    }
+    .cats-scroll {
+      display: flex; overflow-x: auto; gap: 10px;
+      scrollbar-width: none; padding: 10px 24px;
+      align-items: center;
+    }
+    .cats-scroll::-webkit-scrollbar { display: none; }
+    .cat-tab {
+      flex-shrink: 0; padding: 8px 18px;
+      background: rgba(21, 101, 192, 0.08);
+      border: 1px solid rgba(66, 165, 245, 0.15);
+      border-radius: 50px; cursor: pointer;
+      color: var(--gray-2); font-family: var(--font-ar); font-size: 0.88rem; font-weight: 700;
+      transition: var(--transition); white-space: nowrap;
+    }
+    .cat-tab:hover {
+      color: var(--white);
+      border-color: var(--blue-mid);
+      background: rgba(21, 101, 192, 0.15);
+    }
+    .cat-tab.active {
+      background: linear-gradient(135deg, var(--blue-main) 0%, var(--blue-mid) 100%);
+      color: var(--white);
+      border-color: var(--blue-light);
+      box-shadow: 0 0 15px rgba(21, 101, 192, 0.4);
+    }
+
+    /* ============ SEARCH ============ */
+    .search-wrap {
+      position: relative; z-index: 1;
+      max-width: 600px; margin: 32px auto 0; padding: 0 16px;
+    }
+    .search-input {
+      width: 100%; padding: 14px 50px 14px 18px;
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: 50px; color: var(--white); font-family: var(--font-ar); font-size: 0.95rem;
+      outline: none; transition: var(--transition); direction: rtl;
+    }
+    .search-input:focus { border-color: var(--blue-mid); box-shadow: var(--glow-sm); }
+    .search-input::placeholder { color: var(--gray-3); }
+    .search-icon {
+      position: absolute; left: 32px; top: 50%; transform: translateY(-50%);
+      font-size: 1rem; color: var(--gray-3); pointer-events: none;
+    }
+
+    /* ============ MENU CONTENT ============ */
+    .menu-content {
+      position: relative; z-index: 1;
+      max-width: 1280px; margin: 0 auto;
+      padding: 32px 16px 60px;
+    }
+
+    /* ============ LOADING ============ */
+    .loading {
+      display: flex; flex-direction: column; align-items: center;
+      justify-content: center; min-height: 40vh; gap: 20px;
+    }
+    .spinner {
+      width: 50px; height: 50px; border: 3px solid rgba(66,165,245,0.2);
+      border-top-color: var(--blue-light); border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .loading p { color: var(--gray-2); font-size: 1rem; }
+
+    /* ============ CATEGORY SECTION ============ */
+    .cat-section { margin-bottom: 60px; scroll-margin-top: 140px; }
+    .cat-header {
+      display: flex; align-items: center; gap: 14px;
+      margin-bottom: 24px; padding-bottom: 14px;
+      border-bottom: 1px solid var(--border);
+    }
+    .cat-icon {
+      width: 44px; height: 44px;
+      background: rgba(21,101,192,0.2);
+      border: 1px solid rgba(66,165,245,0.3);
+      border-radius: 12px; display: flex; align-items: center;
+      justify-content: center; font-size: 1.2rem; flex-shrink: 0;
+    }
+    .cat-name { font-size: 1.4rem; font-weight: 900; color: var(--white); }
+    .cat-count {
+      margin-right: auto;
+      background: rgba(21,101,192,0.15);
+      border: 1px solid rgba(66,165,245,0.2);
+      color: var(--blue-light); border-radius: 50px;
+      padding: 3px 12px; font-size: 0.78rem; font-weight: 700;
+    }
+
+    /* ============ ITEMS GRID ============ */
+    .items-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 18px;
+    }
+
+    /* ============ ITEM CARD ============ */
+    .item-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      transition: var(--transition);
+      display: flex; flex-direction: column;
+      cursor: pointer;
+      position: relative;
+    }
+    .item-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--blue-main), var(--blue-light));
+      transform: scaleX(0); transition: transform 0.3s;
+    }
+    .item-card:hover::before { transform: scaleX(1); }
+    .item-card:hover {
+      border-color: var(--blue-mid);
+      transform: translateY(-4px);
+      box-shadow: var(--glow-md);
+    }
+    .item-img-wrap {
+      width: 100%; aspect-ratio: 4/3;
+      overflow: hidden; background: var(--bg-secondary);
+      position: relative;
+    }
+    .item-img {
+      width: 100%; height: 100%; object-fit: cover;
+      transition: transform 0.4s;
+    }
+    .item-card:hover .item-img { transform: scale(1.06); }
+    .item-no-img {
+      width: 100%; height: 100%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 3rem; opacity: 0.3;
+      background: linear-gradient(135deg, #0d1a30, #1565c0, #0d1a30);
+    }
+    .item-body { padding: 16px; flex: 1; display: flex; flex-direction: column; gap: 8px; }
+    .item-name { font-size: 1rem; font-weight: 700; color: var(--white); line-height: 1.3; }
+    .item-desc { font-size: 0.82rem; color: var(--gray-2); line-height: 1.5; flex: 1; }
+    .item-footer { display: flex; align-items: center; justify-content: space-between; margin-top: 8px; }
+    .item-price {
+      font-family: var(--font-en);
+      font-size: 1.15rem; font-weight: 900;
+      color: #ffffff;
+      background: linear-gradient(135deg, rgba(21, 101, 192, 0.4) 0%, rgba(30, 136, 229, 0.75) 100%);
+      padding: 5px 14px;
+      border-radius: 50px;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      border: 1px solid rgba(66, 165, 245, 0.5);
+      box-shadow: 0 4px 12px rgba(21, 101, 192, 0.35);
+      transition: var(--transition);
+      backdrop-filter: blur(4px);
+    }
+    .item-price span {
+      font-family: var(--font-ar);
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: rgba(255, 255, 255, 0.9);
+      margin-right: 2px;
+    }
+    .item-card:hover .item-price {
+      background: linear-gradient(135deg, var(--blue-mid) 0%, var(--cyan) 100%);
+      border-color: var(--cyan);
+      box-shadow: 0 0 15px rgba(0, 188, 212, 0.65);
+      transform: scale(1.04);
+    }
+    .item-badge {
+      font-size: 0.72rem; font-weight: 700;
+      background: rgba(21,101,192,0.15);
+      border: 1px solid rgba(66,165,245,0.2);
+      color: var(--blue-light); padding: 3px 10px; border-radius: 50px;
+    }
+
+    /* ============ MODAL ============ */
+    .modal-overlay {
+      position: fixed; inset: 0; z-index: 200;
+      background: rgba(0,0,0,0.8); backdrop-filter: blur(8px);
+      display: flex; align-items: center; justify-content: center;
+      padding: 16px;
+      opacity: 0; pointer-events: none;
+      transition: opacity 0.3s;
+    }
+    .modal-overlay.open { opacity: 1; pointer-events: all; }
+    .modal {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      max-width: 500px; width: 100%;
+      overflow: hidden;
+      transform: scale(0.92) translateY(20px);
+      transition: transform 0.3s;
+    }
+    .modal-overlay.open .modal { transform: scale(1) translateY(0); }
+    .modal-img { width: 100%; aspect-ratio: 4/3; object-fit: cover; }
+    .modal-no-img {
+      width: 100%; aspect-ratio: 4/3;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 6rem;
+      background: linear-gradient(135deg, #0d1a30, #1565c0, #0d1a30);
+    }
+    .modal-body { padding: 24px; }
+    .modal-name { font-size: 1.5rem; font-weight: 900; margin-bottom: 8px; }
+    .modal-desc { color: var(--gray-2); font-size: 0.92rem; margin-bottom: 20px; line-height: 1.6; }
+    .modal-price {
+      font-family: var(--font-en);
+      font-size: 2.2rem; font-weight: 900;
+      color: var(--blue-light);
+      text-shadow: 0 0 15px rgba(66, 165, 245, 0.45);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: baseline;
+      gap: 6px;
+    }
+    .modal-price small { font-family: var(--font-ar); font-size: 1.05rem; color: var(--gray-2); font-weight: 700; }
+    .modal-close {
+      width: 100%; padding: 14px;
+      background: rgba(21,101,192,0.2); border: 1px solid rgba(66,165,245,0.3);
+      border-radius: 10px; color: var(--white); font-family: var(--font-ar); font-size: 1rem;
+      font-weight: 700; cursor: pointer; transition: var(--transition);
+    }
+    .modal-close:hover { background: var(--blue-main); }
+
+    /* ============ EMPTY ============ */
+    .empty { text-align: center; padding: 60px 24px; color: var(--gray-2); }
+    .empty .empty-icon { font-size: 4rem; margin-bottom: 16px; }
+    .empty h3 { font-size: 1.2rem; color: var(--gray-1); margin-bottom: 8px; }
+
+    /* ============ BANNER ============ */
+    .restaurant-banner {
+      width: 100%; max-height: 260px; object-fit: cover;
+      display: block;
+    }
+    .banner-wrap { position: relative; z-index: 1; }
+    .banner-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to bottom, transparent 40%, rgba(8,12,18,1) 100%);
+    }
+
+    /* ============ BACK TO TOP ============ */
+    .btt {
+      position: fixed; bottom: 28px; left: 28px;
+      width: 46px; height: 46px; border-radius: 50%;
+      background: var(--blue-main); color: #fff;
+      border: none; cursor: pointer; font-size: 1.2rem;
+      box-shadow: var(--glow-md); z-index: 99;
+      opacity: 0; transform: translateY(16px);
+      transition: var(--transition);
+    }
+    .btt.visible { opacity: 1; transform: translateY(0); }
+    .btt:hover { transform: translateY(-3px); }
+
+    /* ============ FOOTER ============ */
+    .footer {
+      position: relative; z-index: 1;
+      text-align: center; padding: 40px 24px;
+      border-top: 1px solid var(--border);
+      color: var(--gray-3); font-size: 0.85rem;
+    }
+    .footer img { height: 36px; margin-bottom: 12px; filter: drop-shadow(var(--glow-sm)); }
+    .footer p { margin-bottom: 4px; }
+    .footer a { color: var(--blue-light); text-decoration: none; }
+
+    /* ============ RESPONSIVE ============ */
+    @media (max-width: 600px) {
+      .navbar {
+        padding: 8px 16px;
+      }
+      .nav-back span:last-child {
+        display: none; /* Hide "الموقع الرئيسي" text to fit screen */
+      }
+      .nav-back {
+        padding: 6px 12px;
+        font-size: 0.85rem;
+      }
+      .nav-title {
+        font-size: 0.95rem;
+      }
+      .nav-logo-img {
+        height: 46px !important;
+      }
+      .cats-wrap {
+        top: 55px; /* Alignment with mobile navbar */
+      }
+      .cats-scroll {
+        padding: 8px 12px;
+        gap: 8px;
+      }
+      .cat-tab {
+        padding: 6px 14px;
+        font-size: 0.82rem;
+      }
+      .hero {
+        padding: 30px 16px 20px;
+      }
+      .hero-logo {
+        width: 110px;
+        margin-bottom: 12px;
+      }
+      .hero-badges {
+        gap: 6px;
+      }
+      .badge {
+        padding: 4px 10px;
+        font-size: 0.75rem;
+      }
+      .search-wrap {
+        margin: 20px auto 0;
+      }
+      .search-input {
+        padding: 10px 18px;
+        font-size: 0.9rem;
+      }
+      .cat-section {
+        margin-bottom: 36px;
+        scroll-margin-top: 105px;
+      }
+      .cat-header {
+        margin-bottom: 16px;
+        padding-bottom: 10px;
+        gap: 10px;
+      }
+      .cat-icon {
+        width: 36px;
+        height: 36px;
+        font-size: 1rem;
+      }
+      .cat-name {
+        font-size: 1.15rem;
+      }
+      .items-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+      }
+      .item-card {
+        border-radius: 12px;
+      }
+      .item-name {
+        font-size: 0.88rem;
+        font-weight: 700;
+        display: -webkit-box;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+      .item-body {
+        padding: 12px;
+        gap: 6px;
+      }
+      .item-desc {
+        font-size: 0.75rem;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        min-height: 2.25em; /* Keep description height uniform */
+      }
+      .item-price {
+        font-size: 0.9rem;
+        padding: 4px 10px;
+        border-radius: 30px;
+        gap: 3px;
+      }
+      .item-price span {
+        font-size: 0.62rem;
+      }
+      .modal {
+        max-width: 100%;
+        width: 100%;
+        max-height: 90vh;
+        overflow-y: auto;
+      }
+      .modal-body {
+        padding: 16px;
+      }
+      .modal-name {
+        font-size: 1.25rem;
+      }
+      .modal-desc {
+        font-size: 0.85rem;
+        margin-bottom: 16px;
+      }
+      .modal-price {
+        font-size: 1.7rem;
+        margin-bottom: 16px;
+      }
+      .footer {
+        padding: 30px 16px;
+      }
+    }
+    @media (max-width: 360px) {
+      .items-grid { grid-template-columns: 1fr; gap: 16px; }
+    }
+  </style>
+</head>
+<body>
+
+<canvas id="pc"></canvas>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-back">
+      <span>→</span>
+      <span>الموقع الرئيسي</span>
+    </a>
+    <div class="nav-title">المنيو</div>
+    <a href="index.html">
+      <img src="logo.png" alt="Metro Games" class="nav-logo-img" style="height:58px;filter:drop-shadow(0 0 8px rgba(66,165,245,0.4))"/>
+    </a>
+  </div>
+</nav>
+
+<!-- BANNER (will be set dynamically) -->
+<div class="banner-wrap" id="bannerWrap" style="display:none;">
+  <img id="restaurantBanner" src="" alt="Metro Games Banner" class="restaurant-banner" />
+  <div class="banner-overlay"></div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <img src="logo.png" alt="E-Metro Games" class="hero-logo" />
+  <h1 class="hero-title">قائمة <span class="highlight-blue">Metro Games</span></h1>
+  <p class="hero-sub" id="restaurantAddress">بغداد – الحرية – شارع المشجر</p>
+  <div class="hero-badges">
+    <span class="badge">سناكات</span>
+    <span class="badge">مشروبات</span>
+    <span class="badge">وجبات</span>
+    <span class="badge">ساعات اللعب</span>
+  </div>
+</section>
+
+<!-- SEARCH -->
+<div class="search-wrap">
+  <input type="text" class="search-input" id="searchInput" placeholder="ابحث عن منتج..." />
+</div>
+
+<!-- CATEGORY TABS -->
+<div class="cats-wrap" id="catsWrap" style="display:none;">
+  <div class="cats-scroll" id="catsTabs"></div>
+</div>
+
+<!-- MENU CONTENT -->
+<main class="menu-content">
+  <div class="loading" id="loading">
+    <div class="spinner"></div>
+    <p>جاري تحميل المنيو...</p>
+  </div>
+  <div id="menuSections"></div>
+</main>
+
+<!-- ITEM MODAL -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal" id="modal">
+    <div id="modalImgWrap"></div>
+    <div class="modal-body">
+      <div class="modal-name" id="modalName"></div>
+      <div class="modal-desc" id="modalDesc"></div>
+      <div class="modal-price" id="modalPrice"></div>
+      <button class="modal-close" id="modalClose">إغلاق</button>
+    </div>
+  </div>
+</div>
+
+<!-- BACK TO TOP -->
+<button class="btt" id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <img src="logo.png" alt="Metro Games" />
+  <p>Metro Games – بغداد – الحرية – شارع المشجر</p>
+  <p style="direction: ltr; display: inline-flex; align-items: center; gap: 8px; justify-content: center; width: 100%;">
+    <span style="direction: rtl; display: inline-block;">📞</span>
+    <a href="tel:+9647754823028" style="color: inherit; text-decoration: none; direction: ltr; display: inline-block;">+964 775 482 3028</a>
+    <span>/</span>
+    <a href="tel:07746610664" style="color: inherit; text-decoration: none; direction: ltr; display: inline-block;">0774 661 0664</a>
+  </p>
+  <p style="margin-top:12px;color:#475569;">© 2025 E-Metro Games – مو بس لعب… أسلوب حياة</p>
+</footer>
+
+<script>
+/* ========== PARTICLES ========== */
+(function(){
+  const c = document.getElementById('pc');
+  const x = c.getContext('2d');
+  let W, H, pts = [];
+  function resize(){ W=c.width=innerWidth; H=c.height=innerHeight; }
+  resize(); addEventListener('resize', resize);
+  for(let i=0;i<80;i++) pts.push({
+    x:Math.random()*innerWidth, y:Math.random()*innerHeight,
+    r:Math.random()*1.5+0.3,
+    vx:(Math.random()-.5)*.4, vy:(Math.random()-.5)*.4,
+    op:Math.random()*.4+.1,
+    col:['#1565c0','#1e88e5','#42a5f5','#00bcd4'][Math.floor(Math.random()*4)]
+  });
+  function draw(){
+    x.clearRect(0,0,W,H);
+    pts.forEach(p=>{
+      p.x+=p.vx; p.y+=p.vy;
+      if(p.x<0||p.x>W) p.vx*=-1;
+      if(p.y<0||p.y>H) p.vy*=-1;
+      x.save(); x.globalAlpha=p.op; x.fillStyle=p.col;
+      x.beginPath(); x.arc(p.x,p.y,p.r,0,Math.PI*2); x.fill();
+      x.restore();
+    });
+    requestAnimationFrame(draw);
+  }
+  draw();
+})();
+
+/* ========== BACK TO TOP ========== */
+const btt = document.getElementById('btt');
+window.addEventListener('scroll', ()=>{ btt.classList.toggle('visible', scrollY>300); });
+
+/* ========== CATEGORY ICONS ========== */
+const CAT_ICONS = {
+  'برغر': '🍔', 'burger': '🍔', 'بيتزا': '🍕', 'pizza': '🍕',
+  'مشروبات': '🥤', 'drink': '🥤', 'عصير': '🧃', 'juice': '🧃',
+  'سناك': '🍟', 'snack': '🍟', 'وجبة': '🍽️', 'دجاج': '🍗',
+  'chicken': '🍗', 'قهوة': '☕', 'coffee': '☕', 'كيك': '🎂',
+  'حلو': '🍰', 'sweet': '🍰', 'ساندويتش': '🥪', 'شاي': '🍵',
+  'شاورما': '🌯', 'hot dog': '🌭', 'ايس كريم': '🍦',
+  'اسعار': '🎮', 'ساعات': '🕐', 'pc': '💻', 'ps5': '🕹️',
+  'vip': '👑', 'اضافات': '➕', 'طازج': '🥗', 'سلطة': '🥗',
+  'default': '🍴'
+};
+function getCatIcon(name){
+  const n = name.toLowerCase();
+  for(const [k,v] of Object.entries(CAT_ICONS)){
+    if(n.includes(k)) return v;
+  }
+  return CAT_ICONS.default;
+}
+
+/* ========== MENU STATE ========== */
+let allCategories = [];
+let activeFilter = null;
+let searchQuery = '';
+
+/* ========== FETCH MENU ========== */
+async function fetchMenu(){
+  try {
+    const res = await fetch('https://api.ramz.menu/api/v1/restaurant/customer/menu/', {
+      headers: {
+        'X-Tenant-Id': 'restaurant393c',
+        'Accept-Language': 'ar',
+        'Accept': 'application/json'
+      }
+    });
+    if(!res.ok) throw new Error('HTTP ' + res.status);
+    const json = await res.json();
+    return json.data;
+  } catch(e) {
+    console.error('Menu fetch error:', e);
+    return null;
+  }
+}
+
+/* ========== RENDER MENU ========== */
+function formatPrice(p){
+  return p.toLocaleString('en-US');
+}
+
+function renderMenu(data){
+  const loading = document.getElementById('loading');
+  loading.style.display = 'none';
+
+  // Restaurant banner
+  if(data.restaurant.banner_url){
+    document.getElementById('restaurantBanner').src = data.restaurant.banner_url;
+    document.getElementById('bannerWrap').style.display = 'block';
+  }
+
+  // Address
+  if(data.restaurant.address){
+    document.getElementById('restaurantAddress').textContent = data.restaurant.address;
+  }
+
+  // Filter empty cats
+  allCategories = data.categories.filter(c => c.items && c.items.length > 0);
+
+  // Category tabs
+  const catsWrap = document.getElementById('catsWrap');
+  const catsTabs = document.getElementById('catsTabs');
+  catsWrap.style.display = 'block';
+
+  // Add "الكل" tab
+  const allTab = document.createElement('button');
+  allTab.className = 'cat-tab active';
+  allTab.textContent = 'الكل';
+  allTab.dataset.catId = 'all';
+  allTab.addEventListener('click', () => filterByCategory('all'));
+  catsTabs.appendChild(allTab);
+
+  allCategories.forEach(cat => {
+    const tab = document.createElement('button');
+    tab.className = 'cat-tab';
+    tab.textContent = cat.name;
+    tab.dataset.catId = cat.id;
+    tab.addEventListener('click', () => filterByCategory(cat.id));
+    catsTabs.appendChild(tab);
+  });
+
+  renderSections();
+}
+
+function filterByCategory(catId){
+  activeFilter = catId === 'all' ? null : catId;
+  document.querySelectorAll('.cat-tab').forEach(t => {
+    t.classList.toggle('active', t.dataset.catId === catId);
+  });
+  if(activeFilter){
+    const el = document.getElementById('section-' + activeFilter);
+    if(el) el.scrollIntoView({behavior:'smooth', block:'start'});
+  } else {
+    window.scrollTo({top:0, behavior:'smooth'});
+  }
+}
+
+function renderSections(){
+  const container = document.getElementById('menuSections');
+  container.innerHTML = '';
+  const q = searchQuery.toLowerCase().trim();
+
+  let hasAny = false;
+
+  allCategories.forEach(cat => {
+    if(activeFilter && cat.id !== activeFilter) return;
+
+    let items = cat.items;
+    if(q){
+      items = items.filter(it =>
+        it.name.toLowerCase().includes(q) ||
+        (it.description && it.description.toLowerCase().includes(q))
+      );
+    }
+    if(!items.length) return;
+    hasAny = true;
+
+    const section = document.createElement('section');
+    section.className = 'cat-section';
+    section.id = 'section-' + cat.id;
+
+    section.innerHTML = `
+      <div class="cat-header">
+        <div class="cat-name">${cat.name}</div>
+        <div class="cat-count">${items.length} منتج</div>
+      </div>
+      <div class="items-grid" id="grid-${cat.id}"></div>
+    `;
+    container.appendChild(section);
+
+    const grid = section.querySelector(`#grid-${cat.id}`);
+    items.forEach((item, idx) => {
+      const card = document.createElement('div');
+      card.className = 'item-card';
+      card.style.animationDelay = (idx * 0.05) + 's';
+      card.innerHTML = `
+        <div class="item-img-wrap">
+          ${item.image_url
+            ? `<img class="item-img" src="${item.image_url}" alt="${item.name}" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+               <div class="item-no-img" style="display:none;">🍽️</div>`
+            : `<div class="item-no-img">🍽️</div>`
+          }
+        </div>
+        <div class="item-body">
+          <div class="item-name">${item.name}</div>
+          ${item.description ? `<div class="item-desc">${item.description}</div>` : ''}
+          <div class="item-footer">
+            <div class="item-price"><span dir="ltr">${formatPrice(item.price)}</span> <span>دينار</span></div>
+          </div>
+        </div>
+      `;
+      card.addEventListener('click', () => openModal(item, cat.name));
+      grid.appendChild(card);
+    });
+  });
+
+  if(!hasAny){
+    container.innerHTML = `
+      <div class="empty">
+        <div class="empty-icon">🔍</div>
+        <h3>لا توجد نتائج</h3>
+        <p>جرب كلمة بحث مختلفة</p>
+      </div>
+    `;
+  }
+}
+
+/* ========== MODAL ========== */
+function openModal(item, catName){
+  const overlay = document.getElementById('modalOverlay');
+  document.getElementById('modalImgWrap').innerHTML = item.image_url
+    ? `<img class="modal-img" src="${item.image_url}" alt="${item.name}" />`
+    : `<div class="modal-no-img">🍽️</div>`;
+  document.getElementById('modalName').textContent = item.name;
+  document.getElementById('modalDesc').textContent = item.description || catName;
+  document.getElementById('modalPrice').innerHTML = `<span dir="ltr">${formatPrice(item.price)}</span> <small>دينار عراقي</small>`;
+  overlay.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeModal(){
+  document.getElementById('modalOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.getElementById('modalClose').addEventListener('click', closeModal);
+document.getElementById('modalOverlay').addEventListener('click', e => {
+  if(e.target === e.currentTarget) closeModal();
+});
+document.addEventListener('keydown', e => { if(e.key === 'Escape') closeModal(); });
+
+/* ========== SEARCH ========== */
+let searchTimer;
+document.getElementById('searchInput').addEventListener('input', e => {
+  clearTimeout(searchTimer);
+  searchTimer = setTimeout(() => {
+    searchQuery = e.target.value;
+    activeFilter = null;
+    document.querySelectorAll('.cat-tab').forEach(t =>
+      t.classList.toggle('active', t.dataset.catId === 'all')
+    );
+    renderSections();
+  }, 300);
+});
+
+/* ========== INIT ========== */
+(async function init(){
+  const data = await fetchMenu();
+  if(data){
+    renderMenu(data);
+  } else {
+    document.getElementById('loading').innerHTML = `
+      <div style="text-align:center;color:#94a3b8;">
+        <div style="font-size:3rem;margin-bottom:16px;">😞</div>
+        <p>تعذّر تحميل المنيو</p>
+        <p style="font-size:0.85rem;margin-top:8px;">تحقق من الاتصال بالانترنت وأعد تحميل الصفحة</p>
+        <button onclick="location.reload()" style="margin-top:20px;padding:10px 24px;background:#1565c0;border:none;border-radius:8px;color:#fff;cursor:pointer;font-family:inherit;font-size:0.9rem;">إعادة المحاولة</button>
+      </div>
+    `;
+  }
+})();
+</script>
+</body>
+</html>
